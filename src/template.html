@@ -6,6 +6,23 @@
     <title>To-Do</title>
 </head>
 <body>
+    <div id="content"></div>
+    <div id="addish"><form id="add-book">
+        <label for="title">Title:</label>
+        <input id="title" type="text" name="title" required>
+
+        <label for="Priority">Priority:</label>
+        <input type="text" id="Priority" name="Priority" min="1" max="3" required>
+        
+        <label for="Project">Project:</label>
+        <input type="text" id="Project" name="Project" required>
+        
+        <label for="Done">Done?:</label>
+        <input type="checkbox" id="Done" name="Done" >
+
+         <button type="button" id="submit" >Add to List</button>
+    </form>
+    </div>
     
 </body>
 </html>
