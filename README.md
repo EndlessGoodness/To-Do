@@ -76,7 +76,8 @@ src/
 
 ## Screenshots
 
-![Screenshot](screenshot.png)
+![Screenshot](![image](https://github.com/user-attachments/assets/b5feee78-e409-432e-9bc1-29d253b010ae)
+)
 
 ---
 
