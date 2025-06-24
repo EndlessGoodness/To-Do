@@ -33,14 +33,22 @@ export function passobj(obj){
             name.style.textDecoration = "line-through";
         }
         check.addEventListener("change", () => {
+            const ans = getlibrary();
+            // Find the corresponding todo in the main ans.list
+            const idx = ans.list.findIndex(
+                item => item.title === obj.list[i].title &&
+                        item.priority === obj.list[i].priority &&
+                        item.project === obj.list[i].project
+            );
+            if (idx !== -1) {
+                ans.list[idx].check = check.checked;
+                setLibrary(ans);
+            }
             if(check.checked){
                 name.style.textDecoration = "line-through";
-                obj.list[i].check = true;
             } else {
                 name.style.textDecoration = "none";
-                obj.list[i].check = false;
             }
-            setLibrary(ans);
         });
 
         // Delete button (text)
