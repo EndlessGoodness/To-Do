@@ -1,7 +1,7 @@
 import loadboard from "./main"
 import addnew from "./add-new";
 import refresh from "./list";
-import ans from "./library.json"; // Import your data
+import { getlibrary } from "./data"; // Import your data
 
 function addheader(){
     const header=document.createElement("header");
@@ -46,6 +46,7 @@ function leftnav(){
     });
     leftnav.appendChild(all);
 
+    const ans=getlibrary();
     // Get unique project names
     const projects = [...new Set(ans.list.map(item => item.project))];
 

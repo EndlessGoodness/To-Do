@@ -1,8 +1,8 @@
-import ans from './library.json';
+import { getlibrary, setLibrary} from './data';
 import { updateLeftNav } from './website';
 
 async function refresh(){
-   passobj(ans);
+   passobj(getlibrary());
 }
 export function passobj(obj){
     const count = obj.count;
@@ -40,6 +40,7 @@ export function passobj(obj){
                 name.style.textDecoration = "none";
                 obj.list[i].check = false;
             }
+            setLibrary(ans);
         });
 
         // Delete button (text)
@@ -52,6 +53,7 @@ export function passobj(obj){
 
         // Delete handler
         trash.onclick = () => {
+            const ans=getlibrary();
             // Find the index in the main ans.list (not just filtered obj.list)
             const idx = ans.list.findIndex(
                 item => item.title === obj.list[i].title &&
@@ -61,6 +63,7 @@ export function passobj(obj){
             if(idx !== -1) {
                 ans.list.splice(idx, 1);
                 ans.count = ans.list.length;
+                setLibrary(ans);
                 // Refresh board and leftnav
                 import('./list').then(module => module.default());
                 updateLeftNav();

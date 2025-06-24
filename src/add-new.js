@@ -1,4 +1,4 @@
-import ans from './library.json';
+import { getlibrary, setLibrary} from './data';
 import refresh from './list';
 import { updateLeftNav } from './website';
 
@@ -17,6 +17,7 @@ function addnew(){
     };
 }
 function submitForm(title,priority,project,check){
+    const ans=getlibrary();
     ans.count=ans.count+1;
     ans.list.push({
         "title":title,
@@ -24,6 +25,7 @@ function submitForm(title,priority,project,check){
         "project":project,
         "check":check
     })
+    setLibrary(ans);
     const add=document.getElementById("add-btn");
     /*add.classList.remove("active");*/
     const addi=document.getElementById("addish");
